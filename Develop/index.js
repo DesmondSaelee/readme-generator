@@ -3,7 +3,35 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-const questions= inquirer.prompt ([
+
+const generateReadme = ({ title, Description, Installation , Usage, License, Contributing, Tests, Questions}) =>
+  `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <header class="p-5 mb-4 header bg-light">
+    <div class="container">
+      <h1 class="display-4">The name of my project is: ${title}</h1>
+      <ul class="list-group">
+        <li class="list-group-item">Description: ${Description}</li>
+        <li class="list-group-item">Installation Instructions: ${Installation}</li>
+        <li class="list-group-item">Usage: ${Usage}</li>
+        <li class="list-group-item">License: ${License}</li>
+        <li class="list-group-item">How to Contribute: ${Contributing}</li>
+        <li class="list-group-item">How to test: ${Tests}</li>
+        <li class="list-group-item">How to Ask Questions: ${Questions}</li>
+      </ul>
+    </div>
+  </header>
+</body>
+</html>`;
+
+const readmeQuestions= inquirer.prompt ([
 {
     type: 'input',
     name: 'title',
@@ -16,7 +44,7 @@ const questions= inquirer.prompt ([
 },
 {
     type: 'input',
-    name: 'Installation Instructions',
+    name: 'Installation',
     message: 'Enter Installation Instructions'
 },
 {
@@ -48,18 +76,25 @@ const questions= inquirer.prompt ([
 ])
 .then((answers) => {
 console.log(answers)
+const readmeContent = generateReadme(answers);
+
+fs.writeFile('README.md', readmeContent, (err) =>{
+  err ? console.error(err) : console.log('Success!');
 })
 
+});
+
+// function writeToFile(fileName, data) {} - this is the starter code original
 
 // TODO: Create a function to write README file
-// fs.writeFile('ReadMe', questions[1], (err) =>
+// fs.writeFile('README.md', questions, (err) =>
 //   err ? console.error(err) : console.log('Success!')
 // );
 
 
 
 // TODO: Create a function to initialize app
-function init() { }
+// function init() { }
 
 // Function call to initialize app
-init();
+// init();
