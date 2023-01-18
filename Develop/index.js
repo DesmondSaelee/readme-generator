@@ -91,9 +91,10 @@ const fs = require('fs');
 
 // TODO: Create a function to initialize app
 function init() {
-  const generateReadme = ({ title, Description, Installation, Usage, License, Contributing, Tests, Questions, Username, GithubLink, Email }) =>
+  const generateReadme = ({ title, Description, Installation, Usage, License, Contributing, Tests, Questions, Username, Email }) =>
     ` 
-# ${title}                                      ## License ## Description ## Installation ##Usage ## Contributing ## Tests ## Questions
+# ${title}                                      
+## Table of Contents: **License**   **Description**   **Installation Usage**    **Contributing**    **Tests**   **Questions**
 [![GitHub license](https://img.shields.io/badge/license-${License}-blue.svg)](https://img.shields.io/badge/license-${License}-blue.svg)
 ## License: 
 ### The application is covered under the ${License} license
@@ -117,9 +118,10 @@ function init() {
      ${Tests}
 
 ## Questions:
+     How to contact me:
      ${Questions}
      ${Email}
-     ${Username} <${GithubLink}>
+     ${Username} [Link](https://github.com/${Username})
      `
 
 
@@ -162,24 +164,19 @@ function init() {
     },
     {
       type: 'input',
-      name: 'Questions',
-      message: 'How can other developers ask you questions about your project?'
-    },
-    {
-      type: 'input',
       name: 'Username',
       message: 'What is your Github username?'
-    },
-    {
-      type: 'input',
-      name: 'GithubLink',
-      message: 'What is your Github Profile link?'
     },
     {
       type: 'input',
       name: 'Email',
       message: 'What is your Email address?'
     },
+    {
+      type: 'input',
+      name: 'Questions',
+      message: 'How can other developers reach you about your project?'
+    }
 
   ])
     .then((answers) => {
