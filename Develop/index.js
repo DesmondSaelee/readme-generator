@@ -16,8 +16,8 @@ function init() {
     ` 
 # ${title}    
 
-[Installation](#installation)
-## Table of Contents: [License](#License:)   [Description](#Description:)   [Installation](#Installation:)    [Contributing](#Contributing:)   [Tests](#Tests:)   [Questions](#Questions:)
+
+## Table of Contents: [License](#license)   [Description](#description)   [Installation](#installation)    [Contributing](#contributing)   [Tests](#tests)   [Questions](#questions)
 [![GitHub license](https://img.shields.io/badge/license-${License}-blue.svg)](https://img.shields.io/badge/license-${License}-blue.svg)
 ## License: 
 ### The application is covered under the ${License} license
