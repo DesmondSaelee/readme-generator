@@ -14,40 +14,66 @@ const fs = require('fs');
 function init() {
   const generateReadme = ({ title, Description, Installation, Usage, License, Contributing, Tests, Questions, Username, Email }) =>
     ` 
-# ${title}    
+# ${title} 
 
-
-## Table of Contents: [License](#license)   [Description](#description)   [Installation](#installation)    [Contributing](#contributing)   [Tests](#tests)   [Questions](#questions)
 [![GitHub license](https://img.shields.io/badge/license-${License}-blue.svg)](https://img.shields.io/badge/license-${License}-blue.svg)
+
+
+## Table of Contents: 
+
+[License](#license) 
+
+[Description](#description) 
+
+[Installation](#installation) 
+
+[Contributing](#contributing)
+
+[Tests](#tests) 
+
+[Questions](#questions)
+
 ## License: 
-### The application is covered under the ${License} license
+
+The application is covered under the ${License} license
 
 
 ## Description:
+
     ${Description}
 
 ## Installation:
+
      ${Installation}
 
 ## Usage:
+
      ${Usage}
 
 
 
 ## Contributing:
+
      ${Contributing}
 
 ## Tests:
+
      ${Tests}
 
 ## Questions:
-     How to contact me:
-     ${Questions}
-     ${Email}
-     ${Username} [Link](https://github.com/${Username})
+
+How to contact me:
+
+${Questions}
+
+${Email}
+
+${Username}
+
+[Github Link](https://github.com/${Username})
      `
 
-// Using multiple objects to prompt for user input and grabbing the info to create a ReadME.
+  // Using multiple objects to prompt for user input and grabbing the info to create a ReadME.
   const readmeQuestions = inquirer.prompt([
     {
       type: 'input',
@@ -102,12 +128,12 @@ function init() {
     }
 
   ])
-  // Creating const to equal the user input answers.
+    // Creating const to equal the user input answers.
     .then((answers) => {
       console.log(answers)
       const readmeContent = generateReadme(answers);
 
-  // Creating ReadME file using user input
+      // Creating ReadME file using user input
       fs.writeFile('README.md', readmeContent, (err) => {
         err ? console.error(err) : console.log('Success!');
       })
