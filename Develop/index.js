@@ -1,100 +1,23 @@
-// TODO: Include packages needed for this application
+// TODO: Include packages needed for this application- done
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// TODO: Create an array of questions for user input
-
-// const generateReadme = ({ title, Description, Installation , Usage, License, Contributing, Tests, Questions}) =>
-//   `<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//   <meta charset="UTF-8">
-//   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-//   <title>Document</title>
-// </head>
-// <body>
-//   <header class="p-5 mb-4 header bg-light">
-//     <div class="container">
-//       <h1 class="display-4">The name of my project is: ${title}</h1>
-//       <ul class="list-group">
-//         <li class="list-group-item">Description: ${Description}</li>
-//         <li class="list-group-item">Installation Instructions: ${Installation}</li>
-//         <li class="list-group-item">Usage: ${Usage}</li>
-//         <li class="list-group-item">License: ${License}</li>
-//         <li class="list-group-item">How to Contribute: ${Contributing}</li>
-//         <li class="list-group-item">How to test: ${Tests}</li>
-//         <li class="list-group-item">How to Ask Questions: ${Questions}</li>
-//       </ul>
-//     </div>
-//   </header>
-// </body>
-// </html>`;
-
-// const readmeQuestions= inquirer.prompt ([
-// {
-//     type: 'input',
-//     name: 'title',
-//     message: 'What is the name of your project?'
-// },
-// {
-//     type: 'input',
-//     name: 'Description',
-//     message: 'Enter a description of your project.'
-// },
-// {
-//     type: 'input',
-//     name: 'Installation',
-//     message: 'Enter Installation Instructions'
-// },
-// {
-//     type: 'input',
-//     name: 'Usage',
-//     message: 'What is your project used for?'
-// },
-// {
-//     type: 'input',
-//     name: 'License',
-//     message: 'What license does your project have?'
-// },
-// {
-//     type: 'input',
-//     name: 'Contributing',
-//     message: 'How can other developers contribute to your project?'
-// },
-// {
-//     type: 'input',
-//     name: 'Tests',
-//     message: 'How can other developers test your project?'
-// },
-// {
-//     type: 'input',
-//     name: 'Questions',
-//     message: 'How can other developers ask you questions about your project?'
-// },
-
-// ])
-// .then((answers) => {
-// console.log(answers)
-// const readmeContent = generateReadme(answers);
+// TODO: Create an array of questions for user input- done
 
 
-// fs.writeFile('README.md', readmeContent, (err) =>{
-//   err ? console.error(err) : console.log('Success!');
-// })
-
-// });
+// TODO: Create a function to write README file- done
 
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {} - this is the starter code original
+// TODO: Create a function to initialize app- done
 
-// TODO: Create a function to initialize app
+// Creating a function with multiple paramaters to reference user input answers using jquery.
 function init() {
   const generateReadme = ({ title, Description, Installation, Usage, License, Contributing, Tests, Questions, Username, Email }) =>
     ` 
-# ${title}                                      
-## Table of Contents: **License**   **Description**   **Installation Usage**    **Contributing**    **Tests**   **Questions**
+# ${title}    
+
+[Installation](#installation)
+## Table of Contents: [License](#License:)   [Description](#Description:)   [Installation](#Installation:)    [Contributing](#Contributing:)   [Tests](#Tests:)   [Questions](#Questions:)
 [![GitHub license](https://img.shields.io/badge/license-${License}-blue.svg)](https://img.shields.io/badge/license-${License}-blue.svg)
 ## License: 
 ### The application is covered under the ${License} license
@@ -124,7 +47,7 @@ function init() {
      ${Username} [Link](https://github.com/${Username})
      `
 
-
+// Using multiple objects to prompt for user input and grabbing the info to create a ReadME.
   const readmeQuestions = inquirer.prompt([
     {
       type: 'input',
@@ -179,11 +102,12 @@ function init() {
     }
 
   ])
+  // Creating const to equal the user input answers.
     .then((answers) => {
       console.log(answers)
       const readmeContent = generateReadme(answers);
 
-
+  // Creating ReadME file using user input
       fs.writeFile('README.md', readmeContent, (err) => {
         err ? console.error(err) : console.log('Success!');
       })
@@ -191,5 +115,5 @@ function init() {
     });
 };
 
-// Function call to initialize app
+// Function call to initialize app- done
 init();
