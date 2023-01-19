@@ -1,6 +1,6 @@
 # readme-generator
 
-# Walkthrough Link: 
+## Walkthrough Link: 
 
 https://drive.google.com/file/d/1hIg_8AxPtuhvzoalFZqsuMY1ybrgQsG4/view
 
